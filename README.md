@@ -4,7 +4,7 @@ This repository contains a boilerplate Hardhat project for EVM smart contract de
 
 It contains an example `MyERC721` contract that inherits from the `ImmutableERC721PermissionedMintable` contract from the [`@imtbl/zkevm-contracts`](https://github.com/immutable/zkevm-contracts) package, as well as example test cases and a deployment script to help you get started.
 
-For more information and guides, please refer to our [smart contract developer documentation](https://docs.x.immutable.com/docs/rollups/zkevm/smart-contract-development-framework/).
+For more information and guides, please refer to our [smart contract developer documentation](https://docs.immutable.com/docs/zkEVM/deploy-contracts).
 
 ## How to use
 
