@@ -3,8 +3,9 @@ pragma solidity ^0.8.0;
 
 import "@imtbl/zkevm-contracts/contracts/token/erc721/preset/ImmutableERC721.sol";
 
-contract MyERC721 is ImmutableERC721 {
-  constructor(
+
+contract RewardNft is ImmutableERC721 {
+       constructor(
     address owner,
     string memory name,
     string memory symbol,
@@ -23,7 +24,18 @@ contract MyERC721 is ImmutableERC721 {
       operatorAllowlist,
       receiver,
       feeNumerator
-    )
-  {}
-  
+    ){
+
+    }
+
+
+
+    /// @dev mint `amount` of NFTs with sequential token IDs to `to`
+    function primarySale(uint256 tokenId) external payable {
+    require(!exists(tokenId), "NFT has already been minted");
+       
+            _safeMint(msg.sender, tokenId);
+    }
+
+   
 }

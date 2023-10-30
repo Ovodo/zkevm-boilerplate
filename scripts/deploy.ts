@@ -1,5 +1,10 @@
 import { ethers } from "hardhat";
-import { MyERC721, MyERC721__factory } from "../typechain-types";
+import {
+  ERC20,
+  ERC20__factory,
+  MyERC721,
+  MyERC721__factory,
+} from "../typechain-types";
 
 async function deploy() {
   // get deployer
@@ -19,14 +24,14 @@ async function deploy() {
 
   // deploy MyERC721 contract
   const factory: MyERC721__factory = await ethers.getContractFactory(
-    "MyERC721"
+    "RewardNft"
   );
   const contract: MyERC721 = await factory.connect(deployer).deploy(
     deployer.address, // owner
-    "Imaginary Immutable Iguanas", // name
-    "III", // symbol
-    "https://example-base-uri.com/", // baseURI
-    "https://example-contract-uri.com/", // contractURI
+    "The Bounty Hunter Collection", // name
+    "BTY", // symbol
+    "https://magenta-quiet-pike-706.mypinata.cloud/ipfs/QmTePPF2EXwmh4gUrMeDQy7N6wigown4y5Cv9cYKVqRijd", // baseURI
+    "https://magenta-quiet-pike-706.mypinata.cloud/ipfs/QmQGYJLgdjyk3ydFAa15H12AnYjRXKYZ2N9DoGYYEkcyai", // contractURI
     operatorAllowlist, // operator allowlist
     deployer.address, // royalty recipient
     ethers.BigNumber.from("2000") // fee numerator
@@ -35,6 +40,17 @@ async function deploy() {
 
   // log deployed contract address
   console.log(`MyERC721 contract deployed to ${contract.address}`);
+
+  // //deploy In game currencies contract
+  // const factory2: ERC20__factory = await ethers.getContractFactory("BTY");
+  // const contract2: ERC20 = await factory2
+  //   .connect(deployer)
+  //   .deploy("Bounty", "BTY");
+
+  // await contract2.deployed();
+  // console.log(`Bounty contract deployed to ${contract2.address}`);
+
+  // log deployed contract2 address
 }
 
 deploy().catch((error) => {

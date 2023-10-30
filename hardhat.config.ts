@@ -25,7 +25,7 @@ const config: HardhatUserConfig = {
       allowUnlimitedContractSize: true,
     },
     immutableZkevmTestnet: {
-      url: "https://rpc.testnet.immutable.com",
+      url: "https://rpc.testnet.immutable.com/",
       accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
       allowUnlimitedContractSize: true,
     },

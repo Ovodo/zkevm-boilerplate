@@ -24,5 +24,15 @@ contract MyERC721MintByID is ImmutableERC721MintByID {
       receiver,
       feeNumerator
     )
-  {}
+  {
+    
+  }
+  function mintTokenByID(uint256 tokenId)  external payable {
+  // Check if the token ID has already been minted.
+  require(_exists(tokenId), "Token ID already minted.");
+
+  // Mint the token to the sender.
+  _safeMint(msg.sender, tokenId);
+}
+
 }
