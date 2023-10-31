@@ -39,18 +39,17 @@ async function deploy() {
   await contract.deployed();
 
   // log deployed contract address
-  console.log(`MyERC721 contract deployed to ${contract.address}`);
+  console.log(`BTY contract deployed to ${contract.address}`);
 
-  // //deploy In game currencies contract
-  // const factory2: ERC20__factory = await ethers.getContractFactory("BTY");
-  // const contract2: ERC20 = await factory2
-  //   .connect(deployer)
-  //   .deploy("Bounty", "BTY");
-
-  // await contract2.deployed();
-  // console.log(`Bounty contract deployed to ${contract2.address}`);
+  //deploy In game currencies contract
+  const factory2: ERC20__factory = await ethers.getContractFactory("BTY");
+  const contract2: ERC20 = await factory2
+    .connect(deployer)
+    .deploy("Bounty", "BTY");
 
   // log deployed contract2 address
+  await contract2.deployed();
+  console.log(`Reward contract deployed to ${contract2.address}`);
 }
 
 deploy().catch((error) => {
